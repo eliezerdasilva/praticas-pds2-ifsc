@@ -17,14 +17,15 @@ public class PessoaDAO {
 		con = Conexao.getInstacia();
 		Connection c = con.conectar();
 		try {
-			String query = "Insert INto pessoa(cpf, nome)values(?,?);";
+			String query = "INSERT INTO pessoa(cpf, nome)values(?,?);";
 			PreparedStatement stm = c.prepareStatement(query);
-			stm.setLong(1, 123);
-			stm.setString(2, "Elieie");
+			stm.setLong(1, pessoa.getCpf());
+			stm.setString(2, pessoa.getNome());
+		
 			
 			int valida = stm.executeUpdate();
 		
-		
+		return true;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -33,8 +34,23 @@ public class PessoaDAO {
 	}
 	
 	public boolean atualizar(Pessoa pessoa) {
-		con = Conexao.getInstacia();
-		con.conectar();
+		//con = Conexao.getInstacia();Outro metodo
+		//con.conectar();
+		Connection conn = Conexao.getInstacia().conectar();
+		try {
+			String query = "Update pessoa set nome = ? where cpf = ? ;";
+			PreparedStatement stm = conn.prepareStatement(query);
+			stm.setLong(1, pessoa.getCpf());
+			stm.setString(2, pessoa.getNome());
+		
+			
+			int valida = stm.executeUpdate();
+		
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		con.fecharConexao();
 		return false;
 	}
@@ -57,11 +73,12 @@ public class PessoaDAO {
 			while(rs.next()) {
 				int cpf = rs.getInt("cpf");
 				String nome = rs.getString("nome");
-				Pessoa p= new Pessoa();
+				Pessoa p = new Pessoa();
 				p.setCpf(cpf);
 				p.setNome(nome);
 				pessoas.add(p);
 				
+			
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

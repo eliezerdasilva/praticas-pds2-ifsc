@@ -9,7 +9,8 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		Pessoa pessoa = new Pessoa("eli", 11616);
-		PessoaDAO pessoaDao = null;
+		PessoaDAO pessoaDao = new PessoaDAO();
+		
 		pessoaDao.Inserir(pessoa);
 
 		

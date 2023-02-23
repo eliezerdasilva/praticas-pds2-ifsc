@@ -3,21 +3,17 @@ package modelo;
 public class Pessoa {
 
 	private String nome;
-	private long Cpf;
+	private long cpf;
 	
 	
-	public Pessoa(String nome, long cpf) {
-		super();
-		this.nome = nome;
-		Cpf = cpf;
-	}
-
 	public Pessoa() {
-		super();
 		this.nome = nome;
-		Cpf = Cpf;
+		this.cpf = cpf;
 	}
-
+	public Pessoa(String nome, long cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
+	}
 	public final String getNome() {
 		return nome;
 	}
@@ -27,11 +23,11 @@ public class Pessoa {
 	}
 
 	public final long getCpf() {
-		return Cpf;
+		return cpf;
 	}
 
 	public final void setCpf(long cpf) {
-		Cpf = cpf;
+		cpf = cpf;
 	}
 	
 
