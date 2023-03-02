@@ -36,6 +36,7 @@ public class PessoaDAO {
 		// con = Conexao.getInstacia();Outro metodo
 		// con.conectar();
 		Connection conn = Conexao.getInstacia().conectar();
+		boolean resultado = false;
 		try {
 			String query = "Update pessoa set nome = ? where cpf = ? ;";
 			PreparedStatement stm = conn.prepareStatement(query);
@@ -43,13 +44,13 @@ public class PessoaDAO {
 			stm.setString(2, pessoa.getNome());
 
 			int valida = stm.executeUpdate();
-
+			resultado=  true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		con.fecharConexao();
-		return false;
+		return resultado;
 	}
 
 	public boolean deleter(Pessoa pessoa) {
@@ -70,17 +71,21 @@ public class PessoaDAO {
 			while (rs.next()) {
 				int cpf = rs.getInt("cpf");
 				String nome = rs.getString("nome");
-				Pessoa p = new Pessoa();
+				Pessoa p = new Pessoa();	
 				p.setCpf(cpf);
 				p.setNome(nome);
 				pessoas.add(p);
-
+		
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
+			
 		}
 		con.fecharConexao();
-		return null;
+		return pessoas;
+		
 	}
 
 }
