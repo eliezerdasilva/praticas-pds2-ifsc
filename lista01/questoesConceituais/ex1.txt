@@ -1,0 +1,37 @@
+1 ) Pesquise e descreva: no contexto de programação, o que é uma “biblioteca” e o que é uma “API”? Diferencie ambas utilizando as suas próprias palavras.
+
+R: Biblioteca são ultimadas para o desenvolvimento de sistemas que se constitui de códigos que auxiliam no processo. 
+
+API é uma integração com o sistema, em que é fornecido informações e serviços. 
+
+2 ) Defina brevemente e descreva a razão para se utilizar os padrões de projetos abaixo:
+
+MVC:É uma arquitetura de programação utilizada em linguagens que tem como paradigma de orientação a objeto. É dividido em tres camadas, controller, model e view onde controller manipula questões logicas do
+programa, model defini como os dados se constituíam e estabelece regras de negocio e o view que é a interface gráfica do sistema. 
+
+DAO : É um método utilizado em boas praticas, em linguagens orientada a objeto que constitui da arquitetura MVC.
+Serve para persistir dados no banco de dados.
+
+Singleton : é um método de criação e objeto que permite em que possa ser instanciado apenas uma fez. 
+
+
+3 ) O que é JDBC e como ele se relaciona com bancos de dados e a programação em Java? 
+
+É uma Api que se constitui de classes que se comunicai com java e o banco de dados.
+
+Por meio de classes de conexões geralmente em arquiteturas mvc.  
+
+
+4 ) O que significa “CRUD” e como ele se  relaciona com os quatro métodos que implementamos em nossas classes DAO?
+
+
+Explique brevemente e com suas palavras qual a utilidade das três classes abaixo:
+Connection
+PreparedStatement
+Statement
+
+
+Considere a execução de uma query SQL no banco de dados. Se esperamos um retorno de dados do banco de dados devemos usar a classe Statement ou PreparedStatement? Justifique.
+
+
+Com as suas próprias palavras, diferencie SWING do WINDOWBUILDER.

@@ -24,8 +24,7 @@ public class Main {
 	
 	for (Pessoa p : listaPessoa) {
 		System.out.println(p.getNome());
-		String cpf = String.valueOf(p.getCpf());
-		System.out.println(cpf);
+		System.out.println(p.getCpf());
 		
 	}
 	//Teste
