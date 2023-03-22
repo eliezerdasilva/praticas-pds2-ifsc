@@ -25,7 +25,7 @@ Por meio de classes de conexões geralmente em arquiteturas mvc.
 4 ) O que significa “CRUD” e como ele se  relaciona com os quatro métodos que implementamos em nossas classes DAO?
 
 
-Explique brevemente e com suas palavras qual a utilidade das três classes abaixo:
+5 ) Explique brevemente e com suas palavras qual a utilidade das três classes abaixo:
 Connection
 PreparedStatement
 Statement
@@ -35,3 +35,4 @@ Considere a execução de uma query SQL no banco de dados. Se esperamos um retor
 
 
 Com as suas próprias palavras, diferencie SWING do WINDOWBUILDER.
+
