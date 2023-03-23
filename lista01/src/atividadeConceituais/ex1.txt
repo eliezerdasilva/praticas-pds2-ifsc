@@ -24,15 +24,33 @@ Por meio de classes de conexões geralmente em arquiteturas mvc.
 
 4 ) O que significa “CRUD” e como ele se  relaciona com os quatro métodos que implementamos em nossas classes DAO?
 
+"CRUD"  significa "Create, Read, Update, Delete".
+ Sào operações  básicas que podem ser realizadas em um banco de dados: 
+ criar (Create), ler (Read), atualizar (Update) e excluir (Delete) registros.
+
+Em relação os quatro métodos, eles manipulam objetos no banco de dados. 
+O método "Create" cria novos registros,
+ "Read" consulta registros existentes, 
+ "Update" atualiza  registros e  "Delete" excluir registros.
 
 5 ) Explique brevemente e com suas palavras qual a utilidade das três classes abaixo:
-Connection
-PreparedStatement
-Statement
+
+Connection: É responsável por estabelecer a conexão com o banco de dados 
+
+PreparedStatement : É uma subclasse de Statement que pode executar códigos mais complexos(por parâmetros). 
+
+Statement : Roda códigos mais simples. 
 
 
-Considere a execução de uma query SQL no banco de dados. Se esperamos um retorno de dados do banco de dados devemos usar a classe Statement ou PreparedStatement? Justifique.
+Considere a execução de uma query SQL no banco de dados. 
+Se esperamos um retorno de dados do banco de dados devemos usar a classe Statement ou PreparedStatement? 
+Justifique.
+
+No uso de PreparedStatement é mais recomendado por fatores de  segurança, pela possibilidade de paramentos.  
 
 
-Com as suas próprias palavras, diferencie SWING do WINDOWBUILDER.
+7 ) Com as suas próprias palavras, diferencie SWING do WINDOWBUILDER.
+
+Swing é um framework de java que é utilizado para cria interfaces gráficas no java, já o WINDOWBUILDER é uma ferramenta 
+que auxilia na criação dessas telas(gera o código automaticamente). 
 
