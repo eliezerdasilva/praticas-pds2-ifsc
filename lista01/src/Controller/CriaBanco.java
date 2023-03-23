@@ -37,7 +37,7 @@ public class CriaBanco {
 	public Connection conectar() {
 
 		try {
-			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3307/", "root", "root");
+			conexao =  DriverManager.getConnection("jdbc:mysql://localhost/","root","Eliezer-2005");
 
 			String query = "create database if not exists praticaPDS";
 			PreparedStatement stm = conexao.prepareStatement(query);
@@ -49,9 +49,6 @@ public class CriaBanco {
 			String query2 = "create table if not exists usuario  (id int PRIMARY KEY AUTO_INCREMENT, nome varchar(255) NOT NULL, cpf int(255) NOT NULL);";
 			stm.executeUpdate(query2);
 
-			JOptionPane.showMessageDialog(null, "Conectado", null, JOptionPane.WARNING_MESSAGE);
-
-			System.out.println("foi");
 		} catch (SQLException e) {
 			e.printStackTrace();
 

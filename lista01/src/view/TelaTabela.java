@@ -12,27 +12,21 @@ import javax.swing.table.DefaultTableModel;
 
 import Controller.ControllerTabela;
 import model.Pessoa;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaTabela extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaTabela frame = new TelaTabela();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -45,26 +39,45 @@ public class TelaTabela extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 27, 414, 201);
 		contentPane.add(scrollPane);
-		
+
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Nome", "cpf"
-			}
-		));
+		DefaultTableModel dataModel = new DefaultTableModel(new Object[][] {}, new String[] { "Nome", "cpf" });
+		table.setModel(dataModel);
 		scrollPane.setViewportView(table);
-		init();
-	}
-	public void init() {
+		
+		btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaAtividade ta = new TelaAtividade();
+				ta.setLocationRelativeTo(null);
+				ta.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(10, 238, 85, 21);
+		contentPane.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Sair");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			 dispose();
+			}
+		});
+		btnNewButton_1.setBounds(106, 238, 85, 21);
+		contentPane.add(btnNewButton_1);
+
 		ControllerTabela ct = new ControllerTabela();
-		ArrayList<Pessoa> p= ct.consultaUsuarios();
-		ct.preencherTabela(p);
+		ArrayList<Pessoa> p = ct.consultaUsuarios();
+
+		for (Pessoa pessoa : p) {
+			dataModel.addRow(new Object[] { pessoa.getNome(), pessoa.getCpf() });
+			table.setModel(dataModel);
+		}
+
 	}
 
 	public JTable getTable() {
@@ -74,5 +87,5 @@ public class TelaTabela extends JFrame {
 	public void setTable(JTable table) {
 		this.table = table;
 	}
-	
+
 }

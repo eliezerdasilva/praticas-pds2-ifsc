@@ -20,7 +20,7 @@ public class ControllerPessoa {
 		try {
 	
 
-			String query = "insert into usuario(nome,cpf)values(?,?)";
+			String query = "insert into usuario(nome,cpf) values (?,?)";
 			PreparedStatement stm = c.prepareStatement(query);
 			stm.setString(1, nome);
 			stm.setInt(2, cpf);

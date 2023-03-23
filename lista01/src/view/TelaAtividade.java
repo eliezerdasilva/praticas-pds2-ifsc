@@ -11,10 +11,12 @@ import Controller.ControllerPessoa;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class TelaAtividade extends JFrame {
 
@@ -22,22 +24,12 @@ public class TelaAtividade extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtCpf;
 	private JLabel lblNewLabel;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaAtividade frame = new TelaAtividade();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	public TelaAtividade() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,31 +45,57 @@ public class TelaAtividade extends JFrame {
 		contentPane.add(lblnome);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(130, 74, 96, 19);
+		txtNome.setBounds(100, 74, 139, 19);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 		
 		JButton btnCadastra = new JButton("Cadastro");
+		btnCadastra.setBackground(new Color(64, 128, 128));
 		btnCadastra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = txtNome.getText();
 				String cpfString = txtCpf.getText();
 				ControllerPessoa controllerPessoa = new ControllerPessoa();
 				Integer cpf = Integer.valueOf(cpfString);
-				controllerPessoa.insertPessoa(nome,cpf);
+				Boolean resultado = controllerPessoa.insertPessoa(nome,cpf);
+				if (resultado != false) {
+					JOptionPane.showMessageDialog(null, "cadastrado");
+				}
 				
 			}
 		});
-		btnCadastra.setBounds(227, 122, 85, 21);
+		btnCadastra.setBounds(100, 115, 153, 21);
 		contentPane.add(btnCadastra);
 		
 		txtCpf = new JTextField();
-		txtCpf.setBounds(402, 73, 86, 20);
+		txtCpf.setBounds(281, 74, 127, 20);
 		contentPane.add(txtCpf);
 		txtCpf.setColumns(10);
 		
 		lblNewLabel = new JLabel("Cpf");
-		lblNewLabel.setBounds(370, 76, 46, 14);
+		lblNewLabel.setBounds(249, 76, 63, 14);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("tabela");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				TelaTabela ta = new TelaTabela();
+				ta.setLocationRelativeTo(null);
+				ta.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(109, 334, 144, 21);
+		contentPane.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Sair");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_1.setBounds(596, 334, 85, 21);
+		contentPane.add(btnNewButton_1);
 	}
 }
