@@ -20,6 +20,8 @@ public class TelaAtividade extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNome;
+	private JTextField txtCpf;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -37,9 +39,6 @@ public class TelaAtividade extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public TelaAtividade() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 745, 423);
@@ -62,12 +61,23 @@ public class TelaAtividade extends JFrame {
 		btnCadastra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = txtNome.getText();
-				ControllerPessoa controllerPessoa;
-				controllerPessoa.insertPessoa(nome);
+				String cpfString = txtCpf.getText();
+				ControllerPessoa controllerPessoa = new ControllerPessoa();
+				Integer cpf = Integer.valueOf(cpfString);
+				controllerPessoa.insertPessoa(nome,cpf);
 				
 			}
 		});
-		btnCadastra.setBounds(257, 73, 85, 21);
+		btnCadastra.setBounds(227, 122, 85, 21);
 		contentPane.add(btnCadastra);
+		
+		txtCpf = new JTextField();
+		txtCpf.setBounds(402, 73, 86, 20);
+		contentPane.add(txtCpf);
+		txtCpf.setColumns(10);
+		
+		lblNewLabel = new JLabel("Cpf");
+		lblNewLabel.setBounds(370, 76, 46, 14);
+		contentPane.add(lblNewLabel);
 	}
 }
